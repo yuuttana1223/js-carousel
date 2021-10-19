@@ -18,20 +18,22 @@
     }
   };
 
-  updateButtons();
-
-  next.addEventListener("click", () => {
-    currentIndex++;
+  const moveSlides = () => {
     updateButtons();
     const slideWidth = slides[0].getBoundingClientRect().width;
     // -を付ける理由はもともと左端中心から始まっているのでそれを負にずらすと右の要素が左に来る
     ul.style.transform = `translateX(${-(slideWidth * currentIndex)}px)`;
+  };
+
+  updateButtons();
+
+  next.addEventListener("click", () => {
+    currentIndex++;
+    moveSlides();
   });
 
   prev.addEventListener("click", () => {
     currentIndex--;
-    updateButtons();
-    const slideWidth = slides[0].getBoundingClientRect().width;
-    ul.style.transform = `translateX(${-(slideWidth * currentIndex)}px)`;
+    moveSlides();
   });
 }
