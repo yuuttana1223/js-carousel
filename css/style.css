@@ -12,6 +12,7 @@ ul {
   padding: 0;
   height: 100%;
   display: flex;
+  transition: transform 0.3s;
 }
 
 li {
@@ -49,4 +50,8 @@ li img {
 
 #next {
   right: 0;
+}
+
+.hidden {
+  display: none;
 }
